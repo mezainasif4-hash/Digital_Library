@@ -6,7 +6,9 @@ from io import BytesIO
 from threading import RLock
 from streamlit.errors import StreamlitSecretNotFoundError
 
+
 st.set_page_config(page_title="📚Digital Library", layout="wide")
+
 
 # -------------------------
 # Theme
@@ -75,13 +77,15 @@ def apply_theme(theme_choice: str):
             unsafe_allow_html=True,
         )
 
+
 st.sidebar.header("Theme")
 theme_choice = st.sidebar.radio(
     "Theme preset",
-    ["Dark Grey", "Light Grey"],
+    ["Light Grey", "Dark Grey"],  # yahan order change kiya
     key="sb_theme",
 )
 apply_theme(theme_choice)
+
 
 # -------------------------
 # Shared store (global)
@@ -98,8 +102,10 @@ def get_store():
     lock = getattr(lib, "_lock", RLock())
     return {"lib": lib, "orders": orders, "lock": lock}
 
+
 store = get_store()
 lib: Library = store["lib"]
+
 
 # -------------------------
 # Session init (per user)
@@ -113,6 +119,7 @@ if "user_id" not in st.session_state:
 if "cart" not in st.session_state:
     st.session_state.cart = {"customer": "", "items": {}}
 
+
 # -------------------------
 # Helpers
 # -------------------------
@@ -121,6 +128,7 @@ def money_usd(x) -> str:
         return f"${float(x):,.2f}"
     except Exception:
         return "$0.00"
+
 
 def cover_for_st(book):
     if hasattr(book, "cover_for_streamlit"):
@@ -131,11 +139,13 @@ def cover_for_st(book):
         return book.image_url
     return None
 
+
 def get_admin_password_default():
     try:
         return st.secrets.get("ADMIN_PASSWORD", "1234")
     except StreamlitSecretNotFoundError:
         return "1234"
+
 
 def logout():
     st.session_state.role = None
@@ -144,6 +154,7 @@ def logout():
     st.session_state.cart = {"customer": "", "items": {}}
     st.rerun()
 
+
 # ⭐ persist helper
 def persist_now():
     """Current books + orders ko JSON file me save karo."""
@@ -151,6 +162,7 @@ def persist_now():
         books_dict = lib.to_dict()
         orders_list = list(store["orders"])
     save_state(books_dict, orders_list)
+
 
 def order_total(items_dict) -> float:
     total = 0.0
@@ -162,6 +174,7 @@ def order_total(items_dict) -> float:
             total += float(getattr(b, "price", 0)) * int(q)
     return total
 
+
 def items_summary_no_lock(items: dict) -> tuple[str, int]:
     parts = []
     total_qty = 0
@@ -172,6 +185,7 @@ def items_summary_no_lock(items: dict) -> tuple[str, int]:
         parts.append(f"{title} x{q}")
         total_qty += q
     return ", ".join(parts), total_qty
+
 
 def orders_view_rows():
     rows = []
@@ -190,6 +204,7 @@ def orders_view_rows():
             })
     return rows
 
+
 def find_order_index(order_id):
     if not order_id:
         return None
@@ -199,12 +214,14 @@ def find_order_index(order_id):
                 return i
     return None
 
+
 def optional_autorefresh(key: str, interval_ms: int = 2000):
     try:
         from streamlit_autorefresh import st_autorefresh
         st_autorefresh(interval=interval_ms, key=key)
     except Exception:
         pass
+
 
 def generate_user_id(name: str) -> str:
     """Simple user ID: USR-xxxxx based on current orders length."""
@@ -213,10 +230,12 @@ def generate_user_id(name: str) -> str:
     base = name.strip().upper()[:3] or "USR"
     return f"{base}-{n:05d}"
 
+
 # -------------------------
 # Header
 # -------------------------
 st.markdown("## Digital Library")
+
 
 # -------------------------
 # Login
@@ -248,6 +267,7 @@ if st.session_state.role is None:
                 st.error("Wrong password.")
     st.stop()
 
+
 # -------------------------
 # Top bar
 # -------------------------
@@ -260,6 +280,7 @@ with top_l:
 with top_r:
     if st.button("Logout"):
         logout()
+
 
 # =========================
 # ADMIN APP
