@@ -1,0 +1,138 @@
+{
+  "books": {
+    "978-0857197689": {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "total_copies": 64,
+      "available_copies": 63,
+      "price": 22.0,
+      "image_url": "https://bukharibooks.com/wp-content/uploads/2021/03/the-psychology-of-money.jpg"
+    },
+    "13: 978-0857197689": {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "total_copies": 68,
+      "available_copies": 54,
+      "price": 27.05,
+      "image_url": "https://www.oskareggert.com/content/images/size/w2000/2024/02/image_67203329.JPG"
+    },
+    "978-0374533557": {
+      "title": "Fast and Slow",
+      "author": "Daniel Kahneman",
+      "total_copies": 53,
+      "available_copies": 48,
+      "price": 1.5,
+      "image_url": "https://paramountbooks.com.pk/cdn/shop/files/9780141033570.jpg?v=1754367421&width=668"
+    }
+  },
+  "orders": [
+    {
+      "order_id": "ORD-00001",
+      "time": "2025-12-17 12:47:28",
+      "customer": "Zain",
+      "items": {
+        "978-0857197689": 3,
+        "13: 978-0857197689": 1
+      },
+      "status": "CANCELLED (RESTOCKED)",
+      "total_usd": 93.05
+    },
+    {
+      "order_id": "ORD-00002",
+      "time": "2025-12-17 12:53:14",
+      "customer": "hassnain",
+      "items": {
+        "978-0374533557": 2
+      },
+      "status": "DELIVERED",
+      "total_usd": 3.0
+    },
+    {
+      "order_id": "ORD-00003",
+      "time": "2025-12-17 12:57:15",
+      "customer": "Asif",
+      "items": {
+        "978-0857197689": 2
+      },
+      "status": "DELIVERED",
+      "total_usd": 44.0
+    },
+    {
+      "order_id": "ORD-00004",
+      "time": "2025-12-17 13:16:15",
+      "customer": "asia",
+      "items": {
+        "978-0374533557": 1
+      },
+      "status": "DELIVERED",
+      "total_usd": 1.5
+    },
+    {
+      "order_id": "ORD-00005",
+      "time": "2025-12-17 13:18:46",
+      "customer": "asif",
+      "items": {
+        "13: 978-0857197689": 10
+      },
+      "status": "DELIVERED",
+      "total_usd": 270.5
+    },
+    {
+      "order_id": "ORD-00006",
+      "time": "2025-12-17 13:24:58",
+      "customer": "Zain",
+      "items": {
+        "13: 978-0857197689": 24
+      },
+      "status": "DELIVERED",
+      "total_usd": 649.2
+    },
+    {
+      "order_id": "ORD-00007",
+      "time": "2025-12-17 22:06:43",
+      "customer": "jason",
+      "user_id": "JAS-00007",
+      "items": {
+        "978-0857197689": 1,
+        "13: 978-0857197689": 1,
+        "978-0374533557": 1
+      },
+      "status": "DELIVERED",
+      "total_usd": 50.55
+    },
+    {
+      "order_id": "ORD-00008",
+      "time": "2025-12-17 22:09:01",
+      "customer": "zain",
+      "user_id": "ZAI-00008",
+      "items": {
+        "13: 978-0857197689": 2
+      },
+      "status": "PAID",
+      "total_usd": 54.1
+    },
+    {
+      "order_id": "ORD-00009",
+      "time": "2025-12-17 22:16:52",
+      "customer": "jason",
+      "user_id": "JAS-00009",
+      "items": {
+        "978-0374533557": 1
+      },
+      "status": "DELIVERED",
+      "total_usd": 1.5
+    },
+    {
+      "order_id": "ORD-00010",
+      "time": "2025-12-17 22:18:07",
+      "customer": "annie",
+      "user_id": "ANN-00010",
+      "items": {
+        "13: 978-0857197689": 1
+      },
+      "status": "DELIVERED",
+      "total_usd": 27.05,
+      "admin_note": "Your order ORD-00010 is still unpaid. Kindly confirm your payment."
+    }
+  ]
+}
